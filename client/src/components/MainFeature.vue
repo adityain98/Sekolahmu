@@ -46,8 +46,8 @@ export default {
 </script>
 
 <style>
-#main-feature {
-    margin-top: 200px;
+  #main-feature {
+    margin-top: 50px;
   }
 
   #main-feature-title {
@@ -118,6 +118,18 @@ export default {
 
   .main-feature-cards:hover i{
     color: black
+  }
+
+  @media screen and (max-width: 1201px) {
+    .main-feature-cards {
+      max-width: 400px !important;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .main-feature-cards {
+      max-width: 700px !important;
+    }
   }
 
 </style>

@@ -168,7 +168,7 @@ export default {
   }
 
   .program-unggulan-cards {
-    width: 340px;
+    max-width: 340px;
     margin: 10px;
     border-width: thin;
     border-color: rgba(214, 214, 214, 0.4);
@@ -263,7 +263,7 @@ export default {
     padding-right: 20px;
     padding-bottom: 20px;
     padding-top: 0;
-    background-color: #F3F3F3;
+    background-color: #FFF;
     border: 0px;
   }
 
@@ -294,6 +294,26 @@ export default {
   .card-footer-items div {
     margin-top: 0;
     margin-left: 5px
+  }
+
+  @media screen and (max-width: 1201px) {
+    .program-unggulan-cards {
+      max-width: 400px !important;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .program-unggulan-cards {
+      max-width: 700px !important;
+    }
+  }
+
+  @media screen and (max-width: 376px) {
+    #program-unggulan-menu div {
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 80%
+    }
   }
 
   .list-enter-active,

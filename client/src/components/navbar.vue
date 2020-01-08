@@ -3,25 +3,35 @@
     <div id="nav">
       <img src="https://www.sekolah.mu/wp-content/uploads/2019/11/sekolahmu-logo-email.png" id="logo">
       <div class="nav-icons">
-        <div class="menu-icons">
+        <div class="menu-icons" v-if="numberQuery < 5">
           <i class="fas fa-home" style="background-color: #f1c40f"></i>
           <div class="menu-icon-desc">Beranda</div>
         </div>
-        <div class="menu-icons">
+        <div class="menu-icons" v-if="numberQuery < 4">
           <i class="fas fa-school" style="background-color: #dd9933"></i>
           <div class="menu-icon-desc">Tentang</div>
         </div>
-        <div class="menu-icons">
+        <div class="menu-icons" v-if="numberQuery < 3">
           <i class="fas fa-user-graduate" style="background-color: #1abc9c"></i>
           <div class="menu-icon-desc">Ikut Program</div>
         </div>
-        <div class="menu-icons">
+        <div class="menu-icons" v-if="numberQuery < 2">
           <i class="fas fa-people-carry" style="background-color: #e74c3c"></i>
           <div class="menu-icon-desc">Kolaborasi</div>
         </div>
-        <div class="menu-icons">
+        <div class="menu-icons" v-if="numberQuery < 1">
           <i class="fab fa-readme" style="background-color: #1e73be"></i>
           <div class="menu-icon-desc">Blog</div>
+        </div>
+        <div class="menu-icons" v-if="numberQuery > 0 && numberQuery < 5" data-toggle="dropdown">
+          <div class="dropdown-toggle menu-icon-desc" id="dropdown-menu">
+            More
+          </div>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </div>
       <div class="nav-icons">
@@ -47,11 +57,12 @@ export default {
         transition: '0.3s',
       },
       posScroll: 0,
-      isScrollUp: false
+      isScrollUp: false,
+      numberQuery: 0
     }
   },
   methods: {
-    handleScroll () {
+    handleScroll() {
       // determine scroll up or not
       // if(this.posScroll < window.scrollY) {
       //   this.isScrollUp = true
@@ -92,13 +103,61 @@ export default {
       //   this.styleNavbar.position = 'absolute'
       //   this.styleNavbar.display = 'block'
       // }
+    },
+    onResize() {
+      const width = window.innerWidth
+      
+      if(width < 600) {
+        this.numberQuery = 5
+      }
+      else if(width < 740) {
+        this.numberQuery = 4
+      }
+      else if(width < 910) {
+        this.numberQuery = 3
+      }
+      else if(width < 1060) {
+        this.numberQuery = 2
+      }
+      else if(width < 1082) {
+        this.numberQuery = 1
+      }
+      else{
+        this.numberQuery = 0
+      }
+    },
+    initialScreen() {
+      const width = window.screen.width
+
+      if(width < 600) {
+        this.numberQuery = 5
+      }
+      else if(width < 740) {
+        this.numberQuery = 4
+      }
+      else if(width < 910) {
+        console.log(3, '===')
+        this.numberQuery = 3
+      }
+      else if(width < 1060) {
+        this.numberQuery = 2
+      }
+      else if(width < 1082) {
+        this.numberQuery = 1
+      }
+      else{
+        this.numberQuery = 0
+      }
     }
   },
   created () {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.onResize)
+    this.initialScreen()
   },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.onResize);
   }
 }
 </script>
@@ -125,6 +184,14 @@ export default {
   .nav-icons {
     display: flex;
     justify-content: center
+  }
+
+  #dropdown-menu {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0
   }
 
   .menu-icons {

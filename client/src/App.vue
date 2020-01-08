@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #F3F3F3">
+  <div>
     <navbar/>
     <div style="padding-top: 10vh">
       <router-view/>
