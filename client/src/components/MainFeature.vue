@@ -1,6 +1,6 @@
 <template>
   <div id="main-feature">
-    <h3>FITUR UTAMA SEKOLAHMU</h3>
+    <h3 id="main-feature-title">FITUR UTAMA SEKOLAHMU</h3>
     <div id="main-feature-desc">
       <div>
         Beragam kebutuhan belajar dalam satu tempat, terhubung melalui smartphone. Sekolahmu menghadirkan semuanya untuk murid, supaya murid bisa fokus dan berhasil meraih impian.
@@ -50,7 +50,7 @@ export default {
     margin-top: 200px;
   }
 
-  #main-feature h3 {
+  #main-feature-title {
     font-weight: 300;
     text-align: center
   }
@@ -99,7 +99,7 @@ export default {
   .main-feature-cards h3 {
     margin-top: 10px;
     color: white;
-    font-weight: 900
+    font-weight: 500;
   }
 
   .main-feature-cards div {

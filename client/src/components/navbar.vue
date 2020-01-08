@@ -42,6 +42,7 @@ export default {
       styleNavbar: {
         'background-color': 'rgba(255, 255, 255, 0)',
         position: 'fixed',
+        'z-index': 1000,
         display: 'block',
         transition: '0.3s',
       },
