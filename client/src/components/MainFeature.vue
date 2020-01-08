@@ -1,5 +1,5 @@
 <template>
-  <div id="main-feature">
+  <div id="main-feature" class="container">
     <h3 id="main-feature-title">FITUR UTAMA SEKOLAHMU</h3>
     <div id="main-feature-desc">
       <div>
@@ -65,7 +65,8 @@ export default {
   }
 
   #main-feature-desc div {
-    width: 50vw
+    max-width: 720px;
+    text-align: center
   }
 
   #main-feature-card {

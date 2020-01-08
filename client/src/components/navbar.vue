@@ -117,7 +117,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
     padding-right: 20px;
     padding-left: 20px
   }
@@ -130,7 +130,7 @@ export default {
   .menu-icons {
     display: flex;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
     padding-left: 12px;
     padding-right: 12px;
     cursor: pointer;
