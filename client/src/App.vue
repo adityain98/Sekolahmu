@@ -1,36 +1,25 @@
 <template>
   <div>
     <navbar/>
-    <div style="padding-top: 10vh">
+    <div style="padding-top: 8vh">
       <router-view/>
     </div>
-    <div id="footer">
-      <div class="container">© 2020 Sekolahmu</div>
-    </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import Navbar from './components/navbar'
+import Navbar from './components/navbar.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>
 
 <style>
-  #footer {
-    height: 20vh;
-    background-color: #11161A;
-    color: #BABABA;
-    display: flex;
-    align-items: center
-  }
-
-  #footer div {
-    font-size: 80%
-  }
 
 </style>

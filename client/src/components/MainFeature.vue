@@ -7,41 +7,67 @@
       </div>
     </div>
     <div id="main-feature-card">
-      <div class="main-feature-cards" style="background-color: #56C1E8">
-        <i class="far fa-comments"></i>
-        <h3>Tanyamu</h3>
-        <div>
-          Tanyakan latihan soal atau tugas rumah yang sulit kepada guru dan temanmu dari berbagai daerah.
-        </div>
-      </div>
-      <div class="main-feature-cards" style="background-color: #68D5B9">
-        <i class="fa fa-tasks"></i>
-        <h3>Ujianmu</h3>
-        <div>
-          Pemahaman belajar yang lebih terstruktur untuk menghadapi berbagai ujian pendidikan.
-        </div>
-      </div>
-      <div class="main-feature-cards" style="background-color: #F7A01D">
-        <i class="fa fa-school"></i>
-        <h3>Kelasmu</h3>
-        <div>
-          Jadi lebih kompeten melalui program blended learning yang menyenangkan bersama siswa sekolah lain.
-        </div>
-      </div>
-      <div class="main-feature-cards" style="background-color: #F17E58">
-        <i class="far fa-building"></i>
-        <h3>Kariermu</h3>
-        <div>
-          Program magang bersertifikasi di perusahaan dan interaksi langsung dengan para pakar.
-        </div>
-      </div>
+      <card-main-feature 
+        v-for="(feature, i) in features" :key="i"
+        :background-color="feature.backgroundColor"
+        :icon-class="feature.iconClass" 
+        :main-feature="feature.mainFeature" 
+        :description="feature.description"
+      />
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import CardMainFeature from './CardMainFeature.vue'
 
+export default {
+  name: 'MainFeature',
+  data() {
+    return {
+      features: [
+        {
+          backgroundColor: '#56C1E8',
+          iconClass: {
+            far: true,
+            'fa-comments': true
+          },
+          mainFeature: 'Tanyamu',
+          description: 'Tanyakan latihan soal atau tugas rumah yang sulit kepada guru dan temanmu dari berbagai daerah.'
+        },
+        {
+          backgroundColor: '#68D5B9',
+          iconClass: {
+            fa: true,
+            'fa-tasks': true
+          },
+          mainFeature: 'Ujianmu',
+          description: 'Pemahaman belajar yang lebih terstruktur untuk menghadapi berbagai ujian pendidikan.'
+        },
+        {
+          backgroundColor: '#F7A01D',
+          iconClass: {
+            fa: true,
+            'fa-school': true
+          },
+          mainFeature: 'Kelasmu',
+          description: 'Jadi lebih kompeten melalui program blended learning yang menyenangkan bersama siswa sekolah lain.'
+        },
+        {
+          backgroundColor: '#F17E58',
+          iconClass: {
+            far: true,
+            'fa-building': true
+          },
+          mainFeature: 'Kariermu',
+          description: 'Program magang bersertifikasi di perusahaan dan interaksi langsung dengan para pakar.'
+        },
+      ]
+    }
+  },
+  components: {
+    CardMainFeature
+  }
 }
 </script>
 
@@ -73,51 +99,7 @@ export default {
     margin-top: 50px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap
-  }
-
-  .main-feature-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 250px;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-right: 20px;
-    padding-left: 20px;
-    transition: 0.5s;
-    cursor: pointer;
-    margin: 10px
-  }
-
-  .main-feature-cards i {
-    font-size: 400%;
-    color: white;
-    transition: 0.5s
-  }
-
-  .main-feature-cards h3 {
-    margin-top: 10px;
-    color: white;
-    font-weight: 500;
-  }
-
-  .main-feature-cards div {
-    text-align: center;
-    color: white;
-    margin-top: 10px;
-    font-size: 90%
-  }
-
-  .main-feature-cards:hover {
-    -webkit-box-shadow: 0px 0px 11px 6px rgba(0,0,0,0.17);
-    -moz-box-shadow: 0px 0px 11px 6px rgba(0,0,0,0.17);
-    box-shadow: 0px 0px 11px 6px rgba(0,0,0,0.17);
-  }
-
-  .main-feature-cards:hover i{
-    color: black
+    flex-wrap: wrap;
   }
 
   @media screen and (max-width: 1201px) {

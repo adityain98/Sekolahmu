@@ -1,9 +1,9 @@
 <template>
   <nav :style="styleNavbar">
     <div id="nav">
-      <img src="https://www.sekolah.mu/wp-content/uploads/2019/11/sekolahmu-logo-email.png" id="logo">
+      <img src="https://www.sekolah.mu/wp-content/uploads/2019/11/sekolahmu-logo-email.png" id="logo" @click="toHome()">
       <div class="nav-icons">
-        <div class="menu-icons" v-if="numberQuery < 5">
+        <div class="menu-icons" v-if="numberQuery < 5" @click="toHome()">
           <i class="fas fa-home" style="background-color: #f1c40f"></i>
           <div class="menu-icon-desc">Beranda</div>
         </div>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       styleNavbar: {
-        'background-color': 'rgba(255, 255, 255, 0)',
+        'background-color': 'rgba(255, 255, 255, 1)',
         position: 'fixed',
         'z-index': 1000,
         display: 'block',
@@ -75,10 +75,15 @@ export default {
 
       // change opacity
       if(window.scrollY < 2) {
-        this.styleNavbar['background-color'] = 'rgba(255, 255, 255, 0)'
-        this.styleNavbar['-webkit-box-shadow'] = '0px 0px 0px 0px rgba(0,0,0,0)'
-        this.styleNavbar['-moz-box-shadow'] = '0px 0px 0px 0px rgba(0,0,0,0)'
-        this.styleNavbar['box-shadow'] = '0px 0px 0px 0px rgba(0,0,0,0)'
+        if(this.$route.name === 'program') {
+          this.styleNavbar['background-color'] = 'rgba(255, 255, 255, 1)'
+        }
+        else {
+          this.styleNavbar['background-color'] = 'rgba(255, 255, 255, 0)'
+        }
+          this.styleNavbar['-webkit-box-shadow'] = '0px 0px 0px 0px rgba(0,0,0,0)'
+          this.styleNavbar['-moz-box-shadow'] = '0px 0px 0px 0px rgba(0,0,0,0)'
+          this.styleNavbar['box-shadow'] = '0px 0px 0px 0px rgba(0,0,0,0)'
       }
       if(window.scrollY > 1) {
         this.styleNavbar['background-color'] = 'rgba(255, 255, 255, 1)'
@@ -148,6 +153,9 @@ export default {
       else{
         this.numberQuery = 0
       }
+    },
+    toHome() {
+      this.$router.push('/')
     }
   },
   created () {
@@ -156,8 +164,8 @@ export default {
     this.initialScreen()
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
-    window.removeEventListener('resize', this.onResize);
+    // window.removeEventListener('scroll', this.handleScroll);
+    // window.removeEventListener('resize', this.onResize);
   }
 }
 </script>
