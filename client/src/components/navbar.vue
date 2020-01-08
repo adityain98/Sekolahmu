@@ -38,7 +38,7 @@
         <i class="fas fa-shopping-bag nav-tiny-icons"></i>
         <i class="fas fa-heart nav-tiny-icons"></i>
         <i class="fa fa-search nav-tiny-icons"></i>
-        <i class="fa fa-user nav-tiny-icons"></i>
+        <i class="fa fa-user nav-tiny-icons" id="profile"></i>
       </div>
     </div>
   </nav>
@@ -106,7 +106,7 @@ export default {
     },
     onResize() {
       const width = window.innerWidth
-      
+
       if(width < 600) {
         this.numberQuery = 5
       }
@@ -235,6 +235,18 @@ export default {
     font-weight: 600;
     margin-left: 10px;
     transition: 0.3s
+  }
+
+  @media screen and (max-width: 425px) {
+    .nav-icons i {
+      display: none
+    }
+    #profile {
+      display: block
+    }
+    #logo {
+      width: 150px
+    }
   }
 
 </style>

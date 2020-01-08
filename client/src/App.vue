@@ -4,6 +4,9 @@
     <div style="padding-top: 10vh">
       <router-view/>
     </div>
+    <div id="footer">
+      <div class="container">© 2020 Sekolahmu</div>
+    </div>
   </div>
 </template>
 
@@ -18,5 +21,16 @@ export default {
 </script>
 
 <style>
+  #footer {
+    height: 20vh;
+    background-color: #11161A;
+    color: #BABABA;
+    display: flex;
+    align-items: center
+  }
+
+  #footer div {
+    font-size: 80%
+  }
 
 </style>
